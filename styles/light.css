@@ -1,12 +1,33 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
+
 
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --background-image: url(../images/cover-image-light.png);
+  --footer-header-text: #f1b2ce;
+  --bg-color: #ff8dcb;
+  --text-color: #353430;
+  --shadow-color: #ff0070;
+  --decor-button-border: #353430;
+  --decor-button-hover: rgba(50, 49, 45, 0.4);
+  --text-bg: #ff8dcb;
+}
+
+.theme_light .rec-decor {
+  display: none;
+}
+
+/* Нужно для переключение авто темы */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-image: url(../images/cover-image-light.png);
+    --footer-header-text: #f1b2ce;
+    --bg-color: #ff8dcb;
+    --text-color: #353430;
+    --shadow-color: #ff0070;
+    --decor-button-border: #353430;
+    --text-bg: #ff8dcb;
+  }
+
+  :root.rec-decor {
+    display: none;
+  }
 }
