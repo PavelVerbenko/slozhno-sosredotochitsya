@@ -2,10 +2,11 @@
 
 .page.theme_light {
   --background-image: url(../images/cover-image-light.png);
-  --footer-header-text: #f1b2ce;
+  --footer-header-text: #FFC2E6;
   --bg-color: #ff8dcb;
   --text-color: #353430;
-  --shadow-color: #ff0070;
+  --shadow-color: #FF8DCB;
+  --shadow-color__big: #ff0070;
   --decor-button-border: #353430;
   --decor-button-hover: rgba(50, 49, 45, 0.4);
   --text-bg: #ff8dcb;
@@ -19,15 +20,14 @@
 @media (prefers-color-scheme: light) {
   :root {
     --background-image: url(../images/cover-image-light.png);
-    --footer-header-text: #f1b2ce;
+    --footer-header-text: #FFC2E6;
     --bg-color: #ff8dcb;
     --text-color: #353430;
-    --shadow-color: #ff0070;
+    --shadow-color: #FF8DCB;
+    --shadow-color__big: #ff0070;
     --decor-button-border: #353430;
+    --decor-button-hover: rgba(50, 49, 45, 0.4);
     --text-bg: #ff8dcb;
-  }
-
-  :root.rec-decor {
-    display: none;
+    --rec-decor: none;
   }
 }

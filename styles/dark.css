@@ -5,7 +5,9 @@
   --text-color: #f1b2ce;
   --text-content: #000028;
   --shadow-color: #ff0070;
+  --shadow-color__big: #ff0070;
   --decor-button-border: #ff0070;
   --decor-button-hover: rgba(255, 0, 112, 0.4);
   --text-bg: #ff0070;
+  --rec-decor: flex;
 }

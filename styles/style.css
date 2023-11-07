@@ -1,23 +1,3 @@
-
-body {
-  margin: 0px;
-}
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
-li {
-  list-style: none;
-}
-
-ul {
-  padding: 0px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* Для экранов от 375 пикселей */
 .page {
   background-color: var(--bg-color);
@@ -29,22 +9,50 @@ ul {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  max-width: 1440px;
 }
 
+/* сделал как и сказали */
+/* При любой ширине экрана блоки header и footer должны иметь высоту равную высоте экрана */
+
 /* HEADER BLOCK */
+
 .title__header {
   color: var(--footer-header-text);
   text-shadow: 4px 4px 0px var(--shadow-color);
 }
 
+/* пробовал не дублировать, но так не работает */
+/* Для правого верхнего */
 .decorated-zone::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone:before {
   border-inline-end: 1px solid var(--decor-button-border);
   border-block-start: 1px solid var(--decor-button-border);
+  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+/* Для левой нижней части */
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inline-size: 25px;
+  block-size: 25px;
 }
 
 .decorated-zone::after {
   border-inline-start: 1px solid var(--decor-button-border);
   border-block-end: 1px solid var(--decor-button-border);
+  inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
 /* REC BLOCK */
@@ -52,14 +60,13 @@ ul {
   display: flex;
   position: absolute;
   align-items: center;
-  z-index: -1;
-  inset-inline-end: calc((10px + 25px - 9px) / 2);
-  inset-block-start: 10px;
-  visibility: visible;
+  inset-inline-end: 15px;
+  inset-block-start: 13px;
   gap: 10px;
 }
 
 .rec-decor::before {
+  display: var(--rec-decor);
   content: "REC";
   color: var(--decor-button-border);
   line-height: 24px;
@@ -68,7 +75,7 @@ ul {
 /* Для круга */
 .rec-decor::after {
   content: "";
-  display: block;
+  display: var(--rec-decor);
   border-radius: 50%;
   box-shadow: 0 0 2px 2px var(--decor-button-border);
   background-color: var(--decor-button-border);
@@ -78,38 +85,13 @@ ul {
 
 /* rec */
 .decorated-zone {
+  position: relative;
   z-index: 1;
 }
 
 .text__header {
   background-color: var(--text-bg);
   color: var(--text-content__header);
-}
-
-/* Меняет цвет кнопок */
-.header__theme-menu-button {
-  color: var(--decor-button-border);
-}
-
-.header__theme-menu-button:hover {
-  border: 1px solid var(--decor-button-hover);
-}
-
-.header__theme-menu-button:focus {
-  outline: none;
-}
-
-.header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--decor-button-border);
-}
-
-.header__theme-menu-button_active {
-  border: 1px solid var(--decor-button-border);
-}
-
-.header__theme-menu-button_active:hover {
-  border: 1px solid var(--decor-button-border);
-  cursor: auto;
 }
 
 a {
@@ -133,8 +115,10 @@ a:focus-visible {
 }
 
 .text_conteiner-color {
-  color: var(--text-content);
+  color: var(--text-color__content);
   background-color: var(--text-bg);
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* Для слов внутри 2 секцции */
@@ -152,43 +136,11 @@ a:focus-visible {
   padding: 10px;
 }
 
-.decorated-zone {
-  position: relative;
-}
-
-/* Для правого верхнего */
-.decorated-zone::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inline-size: 25px;
-  block-size: 25px;
-}
-
-.decorated-zone::before {
-  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-}
-
-/* Для левого нижнего */
-.decorated-zone::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inline-size: 25px;
-  block-size: 25px;
-}
-
-.decorated-zone::after {
-  inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-  inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-}
-
 .content__list {
   padding: 0px 10px 0px;
 }
 
-.title_text_section3 {
+.section3 {
   padding: 0px 10px;
 }
 
@@ -201,21 +153,43 @@ a:focus-visible {
   overflow: hidden;
   outline: none;
   text-align: center;
-  font-family: var(--main-font);
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  color: var(--decor-button-border);
   text-transform: lowercase;
   width: 70px;
   height: 26px;
 }
 
+.header__theme-menu-button:hover {
+  border: 1px solid var(--decor-button-hover);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decor-button-border);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--decor-button-border);
+  pointer-events: none;
+}
+
+.header__theme-menu-button_active:hover {
+  border: 1px solid var(--decor-button-border);
+  cursor: auto;
+}
+/* end кнопки */
 /* для того, чтобы распределить кнопки */
 .header__theme-menu {
   display: flex;
   justify-content: end;
-  padding-top: 48px;
+  padding-top: 65px;
 }
 
 .header__theme-menu-list {
@@ -225,34 +199,41 @@ a:focus-visible {
 }
 
 /* Главный текст в header */
+/* Не увидел где тут дублируется этот селектор */
 .title__header {
   font-size: 116px;
-  font-style: normal;
-  font-weight: 700;
-  margin: 0px;
-  padding-top: 51px;
+  padding-top: 67px;
   line-height: 82.5%; /* 95.7px */
-  padding-bottom: 38px;
+  padding-bottom: 55px;
 }
 
 .text__header {
-  font-style: normal;
-  font-weight: 700;
   line-height: 23.4px; /* 130% */
   margin-bottom: 56px;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
 }
 
-/* секция 2 */
-.conteiner_section2,
-.conteiner_section3,
-.conteiner_section4,
-.conteiner_section6 {
-  padding: 10px;
-  padding-top: 39px;
+/* Если вы про одинаковые значение иммели ввиду, то вынес отдельно */
+.title__header,
+.text__header,
+.title_text,
+.text_conteiner-color,
+.text__conteiner,
+.focus {
+  font-style: normal;
+  font-weight: 700;
 }
 
-.conteiner_section5 {
+/* секция 2 */
+.section2,
+.section3,
+.section4 {
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 5px;
+}
+
+.section5 {
   padding: 18px 10px;
 }
 
@@ -262,14 +243,7 @@ a:focus-visible {
 .text__conteiner {
   display: block;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
-  font-style: normal;
-  font-weight: 700;
   line-height: 23.4px; /* 130% */
-}
-
-.text_conteiner-color {
-  margin-top: 20px;
-  margin-bottom: 10px;
 }
 
 .decor__weight,
@@ -278,15 +252,13 @@ a:focus-visible {
 }
 
 /* 3 секция */
-.title_text_section3 {
-  margin-top: 40px;
-}
+/* для каждой секции заданные определенные отступы, они не как не дублируются */
 
-.conteiner_section4 {
+.section4 {
   padding-top: 50px;
 }
 
-.conteiner_section5 {
+.section5 {
   margin-top: 2px;
   padding-bottom: 45px;
 }
@@ -308,8 +280,6 @@ a:focus-visible {
   align-self: center;
   padding-top: 250px;
   padding-bottom: 275px;
-  font-style: normal;
-  font-weight: 700;
   line-height: 82.5%; /* 95.7px */
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
 }
@@ -330,6 +300,12 @@ a:focus-visible {
   .header {
     padding: 20px 20px 20px 0px;
   }
+
+  .rec-decor {
+    inset-inline-end: calc(20px + (25px - 9px) / 2);
+    inset-block-start: 20px;
+  }
+
   /* Для темной */
   .decor__top-right {
     padding-bottom: 127.5px;
@@ -338,14 +314,14 @@ a:focus-visible {
   .header__theme-menu {
     display: flex;
     justify-content: end;
-    padding-top: 155px;
+    padding-top: 175px;
   }
 
   .title__header {
-    padding-top: 162px;
+    padding-top: 177px;
     padding-left: 4px;
     letter-spacing: 2px;
-    padding-bottom: 145px;
+    padding-bottom: 162px;
   }
 
   .text__header-decor {
@@ -355,7 +331,7 @@ a:focus-visible {
 
   .text__header {
     max-width: 364px;
-    margin-bottom: 162px;
+    margin-bottom: 163px;
   }
 
   .bottom_left-border {
@@ -363,17 +339,17 @@ a:focus-visible {
   }
 
   /* 2 секция */
-  .conteiner_section2 {
+  .section2 {
     margin: 40px 20px;
+    /* margin-top: 242px; */
     padding: 0;
     display: grid;
     grid-template-columns: 210px 0px 472px;
-    grid-template-rows: 100px, 100px;
     align-items: start;
     justify-content: space-between;
   }
 
-  .title_text_section2 {
+  .title_text {
     margin-top: 20px;
   }
 
@@ -383,7 +359,7 @@ a:focus-visible {
     padding: 0px;
   }
 
-  .title_text_section3 {
+  .section3 {
     width: 236px;
     padding: 0px;
     margin: 0px 20px;
@@ -392,7 +368,7 @@ a:focus-visible {
 
   /* 4 секция */
 
-  .conteiner_section4 {
+  .section4 {
     margin: 0px 10px;
     display: grid;
     grid-template-columns: 210px 0px 472px;
@@ -407,26 +383,17 @@ a:focus-visible {
     grid-row-end: 13;
   }
 
-  .conteiner_section5 {
-    margin: 31px 10px 50px;
-  }
-
-  .text_conteiner5 {
-    margin-bottom: 10px;
-  }
-
-  .title__text-decor {
-    margin-top: 30px;
-  }
-
   .text__text-decor {
-    margin: 0px;
-    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+
+  .section4 {
+    padding-top: 60px;
   }
 
   /* 5 секция */
-  .conteiner_section5 {
-    padding: 50px 20px 60px;
+  .section5 {
+    padding: 54px 20px 60px;
     margin: 0px;
   }
 
@@ -483,7 +450,6 @@ a:focus-visible {
   .header {
     padding: 0px 20px 20px 0px;
   }
-  /* Для темной */
 
   .header__theme-menu-list {
     flex-direction: row;
@@ -492,15 +458,16 @@ a:focus-visible {
   .header__theme-menu {
     justify-content: center;
     padding-left: 20px;
-    padding-top: 3px;
+    padding-top: 20px;
   }
 
   .title__header {
-    padding-top: 259px;
+    padding-top: 274px;
     font-size: 157px;
-    padding-left: 4px;
+    padding-left: 0px;
     letter-spacing: 0px;
-    padding-bottom: 96px;
+    padding-bottom: 114px;
+    text-shadow: 4px 4px 0px var(--shadow-color__big);
   }
 
   .decor__top-right {
@@ -529,8 +496,8 @@ a:focus-visible {
     margin-left: 20px;
   }
 
-  .conteiner_section2,
-  .conteiner_section4 {
+  .section2,
+  .section4 {
     display: grid;
     grid-template-columns: 314.96px 0px 648.918px;
     align-items: start;
@@ -544,7 +511,7 @@ a:focus-visible {
     gap: 20px;
   }
 
-  .title_text_section3 {
+  .section3 {
     width: 315px;
   }
 
@@ -557,5 +524,6 @@ a:focus-visible {
     padding-bottom: 270px;
     font-size: 157px;
     margin-bottom: 30px;
+    text-shadow: 2px 2px 0px var(--shadow-color__big);
   }
 }
