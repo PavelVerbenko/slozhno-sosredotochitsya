@@ -1,3 +1,4 @@
+
 /* Для экранов от 375 пикселей */
 .page {
   background-color: var(--bg-color);
@@ -12,10 +13,8 @@
   max-width: 1440px;
 }
 
-/* сделал как и сказали */
-/* При любой ширине экрана блоки header и footer должны иметь высоту равную высоте экрана */
-
 /* HEADER BLOCK */
+
 
 .title__header {
   color: var(--footer-header-text);
@@ -55,35 +54,44 @@
   inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
-/* REC BLOCK */
 .rec-decor {
-  display: flex;
+  display: var(--rec-decor);
+  justify-content: flex-end;
   position: absolute;
-  align-items: center;
-  inset-inline-end: 15px;
-  inset-block-start: 13px;
+  padding-right: 10px;
+  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+/* rec */
+.rec-decor {
+  position: absolute;
   gap: 10px;
+  display: var(--rec-decor);
+  justify-content: center;
+  align-items: center;
+  color: var(--decor-button-border);
 }
 
 .rec-decor::before {
-  display: var(--rec-decor);
   content: "REC";
-  color: var(--decor-button-border);
-  line-height: 24px;
+  display: var(--rec-decor);
+  font-weight: 400;
+  
+  line-height: 138.889%;
 }
 
 /* Для круга */
 .rec-decor::after {
+  display: block;
   content: "";
-  display: var(--rec-decor);
   border-radius: 50%;
-  box-shadow: 0 0 2px 2px var(--decor-button-border);
+  box-shadow: 0 0 4px 3px var(--decor-button-border);
   background-color: var(--decor-button-border);
-  width: 9px;
-  height: 9px;
+  block-size: 9px;
+  inline-size: 9px;
 }
 
-/* rec */
 .decorated-zone {
   position: relative;
   z-index: 1;
@@ -103,6 +111,7 @@ a {
 a:hover {
   border-bottom: 1px solid var(--text-color);
   outline: none;
+  
 }
 
 a:focus-visible {
@@ -134,6 +143,7 @@ a:focus-visible {
 
 .header {
   padding: 10px;
+  padding-top: 20px;
 }
 
 .content__list {
@@ -189,7 +199,7 @@ a:focus-visible {
 .header__theme-menu {
   display: flex;
   justify-content: end;
-  padding-top: 65px;
+  padding-top: 53px;
 }
 
 .header__theme-menu-list {
@@ -202,7 +212,7 @@ a:focus-visible {
 /* Не увидел где тут дублируется этот селектор */
 .title__header {
   font-size: 116px;
-  padding-top: 67px;
+  padding-top: 69px;
   line-height: 82.5%; /* 95.7px */
   padding-bottom: 55px;
 }
@@ -226,16 +236,16 @@ a:focus-visible {
 
 /* секция 2 */
 .section2,
-.section3,
 .section4 {
   padding: 10px;
   padding-top: 40px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
-.section5 {
-  padding: 18px 10px;
+.section3 {
+  padding-top: 40px;
 }
+
 
 /* Для блоков с текстами */
 .title_text,
@@ -259,8 +269,9 @@ a:focus-visible {
 }
 
 .section5 {
-  margin-top: 2px;
+  margin-top: 7px;
   padding-bottom: 45px;
+  padding: 14px 10px;
 }
 
 .container__grid {
@@ -271,6 +282,7 @@ a:focus-visible {
 .footer {
   padding: 10px;
   padding-top: 33px;
+  margin-top: 30px;
 }
 
 .focus {
@@ -301,20 +313,10 @@ a:focus-visible {
     padding: 20px 20px 20px 0px;
   }
 
-  .rec-decor {
-    inset-inline-end: calc(20px + (25px - 9px) / 2);
-    inset-block-start: 20px;
-  }
-
-  /* Для темной */
-  .decor__top-right {
-    padding-bottom: 127.5px;
-  }
-
   .header__theme-menu {
     display: flex;
     justify-content: end;
-    padding-top: 175px;
+    padding-top: 172px;
   }
 
   .title__header {
@@ -393,7 +395,7 @@ a:focus-visible {
 
   /* 5 секция */
   .section5 {
-    padding: 54px 20px 60px;
+    padding: 50px 20px 30px;
     margin: 0px;
   }
 

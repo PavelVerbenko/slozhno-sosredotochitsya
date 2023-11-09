@@ -16,5 +16,5 @@
   --decor-button-hover: rgba(255, 0, 112, 0.4);
   --background-color: (--bg-color);
   --background-image: url(../images/cover-image-dark.png);
-  
+  --rec-decor: flex;
 }
