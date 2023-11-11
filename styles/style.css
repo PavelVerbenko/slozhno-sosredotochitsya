@@ -142,6 +142,7 @@ a:focus-visible {
 /* тут закончить редактировать  */
 
 .header {
+  block-size: 100vh;
   padding: 10px;
   padding-top: 20px;
 }
@@ -235,8 +236,8 @@ a:focus-visible {
 }
 
 /* секция 2 */
-.section2,
-.section4 {
+.content__text,
+.content__article {
   padding: 10px;
   padding-top: 40px;
   padding-bottom: 10px;
@@ -264,14 +265,14 @@ a:focus-visible {
 /* 3 секция */
 /* для каждой секции заданные определенные отступы, они не как не дублируются */
 
-.section4 {
+.content__article {
   padding-top: 50px;
 }
 
-.section5 {
+.content-img {
   margin-top: 7px;
-  padding-bottom: 45px;
   padding: 14px 10px;
+  padding-bottom: 40px;
 }
 
 .container__grid {
@@ -279,19 +280,14 @@ a:focus-visible {
   gap: 10px;
 }
 
-.footer {
-  padding: 10px;
-  padding-top: 33px;
-  margin-top: 30px;
-}
-
 .focus {
   display: flex;
   text-align: center;
   justify-content: center;
   align-self: center;
-  padding-top: 250px;
+  padding-top: 286px;
   padding-bottom: 275px;
+  block-size: 100vh;
   line-height: 82.5%; /* 95.7px */
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
 }
@@ -313,6 +309,7 @@ a:focus-visible {
     padding: 20px 20px 20px 0px;
   }
 
+
   .header__theme-menu {
     display: flex;
     justify-content: end;
@@ -333,7 +330,6 @@ a:focus-visible {
 
   .text__header {
     max-width: 364px;
-    margin-bottom: 163px;
   }
 
   .bottom_left-border {
@@ -341,7 +337,7 @@ a:focus-visible {
   }
 
   /* 2 секция */
-  .section2 {
+  .content__text {
     margin: 40px 20px;
     /* margin-top: 242px; */
     padding: 0;
@@ -370,7 +366,7 @@ a:focus-visible {
 
   /* 4 секция */
 
-  .section4 {
+  .content__article {
     margin: 0px 10px;
     display: grid;
     grid-template-columns: 210px 0px 472px;
@@ -389,17 +385,18 @@ a:focus-visible {
     margin-bottom: 0px;
   }
 
-  .section4 {
+  .content__article {
     padding-top: 60px;
   }
 
   /* 5 секция */
-  .section5 {
+  .content-img {
     padding: 50px 20px 30px;
+    padding-bottom: 60px;
     margin: 0px;
   }
 
-  .text_conteiner5 {
+  .content__img-text {
     margin-bottom: 20px;
   }
 
@@ -434,16 +431,12 @@ a:focus-visible {
     grid-area: footer;
   }
 
-  .footer {
-    padding: 20px;
-  }
-
   .focus {
     display: flex;
     text-align: center;
     justify-content: center;
     align-self: center;
-    padding: 443px 0px;
+    padding: 463px 0px;
     font-size: 120px;
   }
 }
@@ -498,8 +491,8 @@ a:focus-visible {
     margin-left: 20px;
   }
 
-  .section2,
-  .section4 {
+  .content__text,
+  .content__article {
     display: grid;
     grid-template-columns: 314.96px 0px 648.918px;
     align-items: start;
@@ -522,10 +515,9 @@ a:focus-visible {
     text-align: center;
     justify-content: center;
     align-self: center;
-    padding-top: 300px;
+    padding-top: 320px;
     padding-bottom: 270px;
     font-size: 157px;
-    margin-bottom: 30px;
     text-shadow: 2px 2px 0px var(--shadow-color__big);
   }
 }
