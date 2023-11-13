@@ -304,7 +304,7 @@ a:focus-visible {
 
   /* 2 секция */
   .content__text {
-    margin: 36px 20px;
+    margin: 40px 20px;
     padding: 0;
     display: grid;
     grid-template-columns: 210px 0px 472px;
@@ -330,6 +330,11 @@ a:focus-visible {
     padding: 0px;
     margin: 0px 20px;
     margin-top: 80px;
+  }
+
+
+  .content__text-article {
+    padding-top: 20px;
   }
 
   /* 4 секция */
