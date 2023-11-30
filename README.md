@@ -1,3 +1,3 @@
 # slozhno-sosredotochitsya
 Проект "Сложно сосредоточиться"
-https://github.com/PavelVerbenko/slozhno-sosredotochitsya.git
+ https://pavelverbенко.github.io/slozhno-sosredotochitsya/.
